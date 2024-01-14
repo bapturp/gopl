@@ -1,4 +1,4 @@
-package reverseutf8
+package main
 
 import (
 	"reflect"

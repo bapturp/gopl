@@ -4,8 +4,8 @@ import "testing"
 
 func TestReverse(t *testing.T) {
 	testCases := []struct {
-		input   [6]int
-		expects [6]int
+		input [6]int
+		want  [6]int
 	}{
 		{
 			[6]int{1, 2, 3, 4, 5, 6},
@@ -18,11 +18,11 @@ func TestReverse(t *testing.T) {
 	}
 
 	for _, test := range testCases {
-		input := test.input
-		Reverse(&input)
+		got := test.input
+		Reverse(&got)
 		for i := 0; i < len(test.input); i++ {
-			if test.expects[i] != input[i] {
-				t.Errorf("Failed Reverse. input: %v, expects: %v, result: %v", test.input, test.expects, input)
+			if test.want[i] != got[i] {
+				t.Errorf("Failed Reverse. input: %v, want: %v, result: %v", test.input, test.want, got)
 				break
 			}
 		}
