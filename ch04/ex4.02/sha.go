@@ -1,8 +1,3 @@
-// Exercise 4.2:
-// Write a program that prints the SHA256 hash of its standard input
-// by default but supports a command-line flag to print the
-// SHA384 or SHA512 hash instead.
-
 package main
 
 import (
@@ -14,25 +9,34 @@ import (
 	"os"
 )
 
-func main() {
-	bitSize := flag.Int("s", 256, "Output size (bits), accepted values: 256|384|512")
-	flag.Parse()
+var bitSize = flag.Int("s", 256, "Output size (bits), accepted values: 256|384|512")
 
-	data, err := io.ReadAll(os.Stdin)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "reading from stdin: %v\n", err)
+var in io.Reader = os.Stdin
+var out io.Writer = os.Stdout
+
+func main() {
+	flag.Parse()
+	if err := sha(bitSize, in); err != nil {
+		fmt.Fprintf(os.Stderr, "sha: %v\n", err)
 		os.Exit(1)
+	}
+}
+
+func sha(bitSize *int, r io.Reader) error {
+	buffer := make([]byte, 1024)
+	if _, err := r.Read(buffer); err != nil {
+		return fmt.Errorf("reading from stdin: %v\n", err)
 	}
 
 	switch *bitSize {
 	case 512:
-		fmt.Printf("%x\n", sha512.Sum512(data))
+		fmt.Fprintf(out, "%x\n", sha512.Sum512(buffer))
 	case 384:
-		fmt.Printf("%x\n", sha512.Sum384(data))
+		fmt.Fprintf(out, "%x\n", sha512.Sum384(buffer))
 	case 256:
-		fmt.Printf("%x\n", sha256.Sum256(data))
+		fmt.Fprintf(out, "%x\n", sha256.Sum256(buffer))
 	default:
-		fmt.Fprintf(os.Stderr, "Invalid output size of %d\n", *bitSize)
-		os.Exit(1)
+		return fmt.Errorf("Invalid output size of %d\n", *bitSize)
 	}
+	return nil
 }

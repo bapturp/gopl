@@ -14,11 +14,12 @@ func TestComma(t *testing.T) {
 		{"-1234", "-1,234"},
 		{"-1234.567", "-1,234.567"},
 	}
-	for _, tt := range tests { // tt => test table
-		t.Run(tt.a, func(t *testing.T) {
-			ans := comma(tt.a)
-			if ans != tt.want {
-				t.Errorf("got %s, want %s", ans, tt.want)
+
+	for _, test := range tests { // tt => test table
+		t.Run(test.a, func(t *testing.T) {
+			ans := comma(test.a)
+			if ans != test.want {
+				t.Errorf("got %s, want %s", ans, test.want)
 			}
 		})
 	}
