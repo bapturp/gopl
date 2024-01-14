@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bapturp/converter/lenconv"
-	"github.com/bapturp/converter/weiconv"
-	"github.com/bapturp/tempconv"
+	tempconv "github.com/bapturp/gopl/ch02/ex2.01"
+	"github.com/bapturp/gopl/ch02/ex2.02/lenconv"
+	"github.com/bapturp/gopl/ch02/ex2.02/weiconv"
 )
 
 func main() {
