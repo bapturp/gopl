@@ -2,3 +2,5 @@ github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/tj/go-editor v1.0.0 h1:VduwRZWk5gxHbzRkS4buB9BIFzAf6Jc+vd2bLZpHzSw=
 github.com/tj/go-editor v1.0.0/go.mod h1:Jj9Ze2Rn2yj5DmMppydZqr9LbkIcCWrehzZ+7udOT+w=
+golang.org/x/net v0.20.0 h1:aCL9BSgETF1k+blQaYUBx9hJ9LOGP3gAVemcZlf1Kpo=
+golang.org/x/net v0.20.0/go.mod h1:z8BVo6PvndSri0LbOE3hAn0apkU+1YvI6E70E9jsnvY=

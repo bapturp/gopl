@@ -11,6 +11,9 @@ replace (
 	github.com/bapturp/gopl/ch04/ex4.11/model => ./ch04/ex4.10/model
 )
 
-require github.com/tj/go-editor v1.0.0
+require (
+	github.com/tj/go-editor v1.0.0
+	golang.org/x/net v0.20.0
+)
 
 require github.com/pkg/errors v0.8.1 // indirect
